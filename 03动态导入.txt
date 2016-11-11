@@ -1,0 +1,15 @@
+python中模块的导入常用的是import,但是实质上import也是调用的__import__方法
+
+作用：
+同import语句同样的功能，但__import__是一个函数，并且只接收字符串作为参数，所以它的作用就可想而知了。其实import语句就是调用这个函数进行导入工作的，import sys <==>sys = __import__('sys')
+e.g：
+
+__import__(module_name[, globals[, locals[, fromlist]]]) #可选参数默认为globals(),locals(),[]
+__import__('os')    
+__import__('os', globals(), locals(), ['path','pip'])  #等价于from os import path, pip
+说明：
+
+通常在动态加载时可以使用到这个函数，比如你希望加载某个文件夹下的所用模块，但是其下的模块名称又会经常变化时，就可以使用这个函数动态加载所有模块了，最常见的场景就是插件功能的支持。
+
+示例可以参见 动态导入示例
+

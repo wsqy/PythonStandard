@@ -1,0 +1,10 @@
+一个PYTHON中必须还有一个__init__.py文件（python包的标志），即使文件里没有任何代码
+导入包的时候 __init__.py会被首先执行
+__init__.py的作用
+	1.如果需要控制你的方法不被外部非法滥用，可以在__init__.py文件里添加 __all__ = ['module1', 'module2']来进行限制
+	2.为用户提供一个统一的接口
+		示例：foo包下有forms.py,里面定义了 函数funcA 函数funcB
+		正常情况下使用 funcA需要这样： foo.forms.funcA
+		但是可以在 __init__.py先进行导入： from foo.forms import *
+		现在再使用的时候就可以这样使用了： foo.funcA
+
